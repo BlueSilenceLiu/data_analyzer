@@ -137,5 +137,5 @@ if __name__ == '__main__':
     for checker in checkers:
         checker.pack(side=TOP)
     confirm.pack(side=TOP)
-    root.title("输入")
+    root.title("input")
     root.mainloop()
