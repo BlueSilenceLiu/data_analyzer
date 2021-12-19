@@ -1,10 +1,18 @@
+"""
+This program analyzes various parameters of a set of discrete data, 
+including data describing the overall nature, degree of dispersion, etc.
+"""
+##########################################
+#         All rights reserved            #
+##########################################
+
 import numpy as np
 from typing import *
 from tkinter import *
 import re
 import os
 
-VERSION = "1.1.3"
+VERSION = "1.1.4"
 AUTHOR = "BSL"
 
 
