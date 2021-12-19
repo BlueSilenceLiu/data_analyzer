@@ -137,7 +137,7 @@ if __name__ == '__main__':
               "max": Checkbutton(root, text="max", variable=variables["max"]),
               "min": Checkbutton(root, text="min", variable=variables["min"]),
               "len": Checkbutton(root, text="amount", variable=variables["len"]),
-              "sum": Checkbutton(root, text="sum", variable=variables["sum"]}
+              "sum": Checkbutton(root, text="sum", variable=variables["sum"])}
     checkers = checks.values()
     confirm = Button(root, text="submit", command=submit)
     tip.pack(side=TOP)
