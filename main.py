@@ -112,7 +112,9 @@ if __name__ == '__main__':
                  "geo_mean": StringVar(value='0'),
                  "med": StringVar(value='0'),
                  "max": StringVar(value='0'),
-                 "min": StringVar(value='0')}
+                 "min": StringVar(value='0'),
+                 "len": StringVar(value='0'),
+                 "sum": StringVar(value='0')}
     checks = {"var": Checkbutton(root, text="variance", variable=variables["var"]),
               "sam_var": Checkbutton(root, text="sample variance", variable=variables["sam_var"]),
               "stdev": Checkbutton(root, text="standard deviation", variable=variables["stdev"]),
@@ -125,7 +127,9 @@ if __name__ == '__main__':
               "geo_mean": Checkbutton(root, text="geometry mean", variable=variables["geo_mean"]),
               "med": Checkbutton(root, text="median", variable=variables["med"]),
               "max": Checkbutton(root, text="max", variable=variables["max"]),
-              "min": Checkbutton(root, text="min", variable=variables["min"])}
+              "min": Checkbutton(root, text="min", variable=variables["min"]),
+              "len": Checkbutton(root, text="amount", variable=variables["len"]),
+              "sum": Checkbutton(root, text="sum", variable=variables["sum"]}
     checkers = checks.values()
     confirm = Button(root, text="submit", command=submit)
     tip.pack(side=TOP)
