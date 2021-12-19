@@ -4,7 +4,7 @@ from tkinter import *
 import re
 import os
 
-VERSION = "1.1.2"
+VERSION = "1.1.3"
 AUTHOR = "BSL"
 
 
