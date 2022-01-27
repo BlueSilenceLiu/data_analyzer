@@ -1,5 +1,7 @@
 """
-This program analyzes various parameters of a set of discrete data, 
+English(UK & USA)     Anglais(Royaume-Uni et États-Unis)     Inglés(Reino Unido y EE. UU.)
+
+This program analyzes various parameters of a set of discrete data,
 including data describing the overall nature, degree of dispersion, etc.
 """
 ##########################################
@@ -12,7 +14,7 @@ from tkinter import *
 import re
 import os
 
-VERSION = "1.1.4"
+VERSION = "1.2.0"
 AUTHOR = "BSL"
 
 
@@ -99,7 +101,7 @@ def submit(*args):
     res_win = Tk()
     Label(res_win, text="Results(in order):").pack(side=TOP)
     for calculate in calculates:
-        Label(res_win, text=str(eval(f"{calculate}({user_datas})"))).pack(side=TOP)
+        Label(res_win, text= + str(eval(f"{calculate}({user_datas})"))).pack(side=TOP)
     res_win.title("Result")
     res_win.mainloop()
 
@@ -108,37 +110,27 @@ if __name__ == '__main__':
     root = Tk()
     tip = Label(root, text="Input some datas(Separated by newline, space, tab or comma)：")
     entry = Text(root)
-    variables = {"var": StringVar(value='0'),
-                 "sam_var": StringVar(value='0'),
-                 "stdev": StringVar(value='0'),
-                 "sam_stdev": StringVar(value='0'),
-                 "coef_var": StringVar(value='0'),
-                 "mdev": StringVar(value='0'),
-                 "mad": StringVar(value='0'),
-                 "ari_mean": StringVar(value='0'),
-                 "har_mean": StringVar(value='0'),
-                 "geo_mean": StringVar(value='0'),
-                 "med": StringVar(value='0'),
-                 "max": StringVar(value='0'),
-                 "min": StringVar(value='0'),
-                 "len": StringVar(value='0'),
-                 "sum": StringVar(value='0')}
-    checks = {"var": Checkbutton(root, text="variance", variable=variables["var"]),
-              "sam_var": Checkbutton(root, text="sample variance", variable=variables["sam_var"]),
-              "stdev": Checkbutton(root, text="standard deviation", variable=variables["stdev"]),
-              "sam_stdev": Checkbutton(root, text="sample standard deviation", variable=variables["sam_stdev"]),
-              "coef_var": Checkbutton(root, text="coefficient", variable=variables["coef_var"]),
-              "mdev": Checkbutton(root, text="mean deviation", variable=variables["mdev"]),
-              "mad": Checkbutton(root, text="median absolute deviation", variable=variables["mad"]),
-              "ari_mean": Checkbutton(root, text="arithmetic mian", variable=variables["ari_mean"]),
-              "har_mean": Checkbutton(root, text="harminic mean", variable=variables["har_mean"]),
-              "geo_mean": Checkbutton(root, text="geometry mean", variable=variables["geo_mean"]),
-              "med": Checkbutton(root, text="median", variable=variables["med"]),
-              "max": Checkbutton(root, text="max", variable=variables["max"]),
-              "min": Checkbutton(root, text="min", variable=variables["min"]),
-              "len": Checkbutton(root, text="amount", variable=variables["len"]),
-              "sum": Checkbutton(root, text="sum", variable=variables["sum"])}
+    functions = {   # function name: description
+                    "var": "variance",
+                    "sam_var": "sample variance",
+                    "stdev": "standard deviation",
+                    "sam_stdev": "sample standard deviation",
+                    "coef_var": "coefficient",
+                    "mdev": "mean deviation",
+                    "mad": "median absolute deviation",
+                    "ari_mean": "arithmetic mean",
+                    "har_mean": "harmonic mean",
+                    "geo_mean": "geometry mean",
+                    "med": "median",
+                    "max": "max",
+                    "min": "min",
+                    "len": "amount",
+                    "sum": "sum"
+                }
+    variables = {key: StringVar(value='0') for key in functions.keys()}
+    checks = {key: Checkbutton(root, text=des, variable=variables[key]) for key, des in functions.items()}
     checkers = checks.values()
+
     confirm = Button(root, text="submit", command=submit)
     tip.pack(side=TOP)
     entry.pack(side=TOP)
