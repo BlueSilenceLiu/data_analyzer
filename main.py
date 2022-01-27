@@ -14,7 +14,7 @@ from tkinter import *
 import re
 import os
 
-VERSION = "1.2.0"
+VERSION = "1.2.1"
 AUTHOR = "BSL"
 
 
@@ -92,7 +92,7 @@ def med(datas: Datastype):
 def submit(*args):
     global entry, checks, user_datas, calculates, variables
     try:
-        user_datas = [int(i) for i in re.split('[\s\,]', entry.get(1.0, END)) if i != '']
+        user_datas = [float(i) for i in re.split('[\s\,]', entry.get(1.0, END)) if i != '']
     except ValueError:
         print("Please enter number(and available spliter)！")
         os.system("pause")
@@ -101,7 +101,7 @@ def submit(*args):
     res_win = Tk()
     Label(res_win, text="Results(in order):").pack(side=TOP)
     for calculate in calculates:
-        Label(res_win, text= + str(eval(f"{calculate}({user_datas})"))).pack(side=TOP)
+        Label(res_win, text=functions[calculate] + str(eval(f"{calculate}({user_datas})"))).pack(side=TOP)
     res_win.title("Result")
     res_win.mainloop()
 
